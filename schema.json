@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "图片编号": {"type": "integer"},
+    "各维度评分": {
+      "type": "object",
+      "properties": {
+        "1_分离痛苦": {"$ref": "#/definitions/dim"},
+        "2_亲近寻求": {"$ref": "#/definitions/dim"},
+        "3_他人可获得性信念": {"$ref": "#/definitions/dim"},
+        "4_心智化水平": {"$ref": "#/definitions/dim"},
+        "5_结局整合与恢复": {"$ref": "#/definitions/dim"},
+        "6_防御加工": {
+          "type": "object",
+          "properties": {
+            "6a_去激活": {"$ref": "#/definitions/dim"},
+            "6b_认知断开": {"$ref": "#/definitions/dim"},
+            "6c_分离系统": {"$ref": "#/definitions/dim"}
+          }
+        }
+      }
+    },
+    "原始叙述": {"type": "string"},
+    "异常标记": {"type": "array", "items": {"type": "string"}}
+  },
+  "definitions": {
+    "dim": {
+      "type": "object",
+      "properties": {
+        "分数": {"type": "integer", "minimum": 0, "maximum": 3},
+        "证据引用": {"type": "string"}
+      }
+    }
+  }
+}

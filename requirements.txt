@@ -1,0 +1,8 @@
+streamlit
+openai
+jinja2
+numpy
+openai-whisper
+Pillow
+praat-parselmouth
+pandas

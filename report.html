@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>状态性依恋画像报告</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+body { font-family: "Microsoft YaHei", sans-serif; max-width: 800px; margin: 40px auto; color: #2c3e50; }
+h1 { color: #2c3e50; }
+.card { background: #f8f9fa; border-radius: 12px; padding: 20px; margin: 16px 0; }
+.figure { margin: 8px 0; padding: 10px; background: #fff; border-left: 4px solid #4a90d9; }
+canvas { max-width: 100%; }
+.small { color: #7f8c8d; font-size: 0.9em; }
+</style>
+</head>
+<body>
+<h1>你的状态性依恋画像</h1>
+
+<div class="card">
+  <h2>核心模式：安全型</h2>
+  <p>你能靠近，也能独处；关系波动后能较快回稳。</p>
+</div>
+
+<div class="card">
+  <h2>与你相似的人物</h2>
+  
+  <div class="figure">
+    <strong>卢娜·洛夫古德《哈利·波特》</strong><br>
+    <span>独立、信任朋友、不随波逐流</span>
+  </div>
+  
+  <div class="figure">
+    <strong>伊丽莎白·班纳特《傲慢与偏见》</strong><br>
+    <span>自尊、清醒、能沟通</span>
+  </div>
+  
+  <div class="figure">
+    <strong>特蕾莎修女（历史人物）</strong><br>
+    <span>稳定、利他、信任</span>
+  </div>
+  
+  <p class="small"><em>匹配理由：你的安全分、结局整合、他人可获得性较高。</em></p>
+</div>
+
+<div class="card">
+  <h2>六维度雷达</h2>
+  <canvas id="narrativeRadar" height="300"></canvas>
+</div>
+
+<div class="card">
+  <h2>效标雷达</h2>
+  <canvas id="criteriaRadar" height="300"></canvas>
+</div>
+
+<div class="card">
+  <h2>声学特征</h2>
+  
+  <p class="small">本次未采集到声学特征。</p>
+  
+</div>
+
+<div class="card">
+  <h2>效标指标</h2>
+  
+  <p>社会赞许性：4.0（中等）</p>
+  
+  <p>认知重评：4.0（中等）</p>
+  
+  <p>表达抑制：4.0（中等）</p>
+  
+  <p>拒绝敏感性：4.0（中等）</p>
+  
+  <p>神经质：4.0（中等）</p>
+  
+</div>
+
+<div class="card">
+  <h2>建议</h2>
+  <ul>
+    <li>继续保持开放沟通，你的稳定是关系里的锚。</li>
+    <li>在对方波动时，你的平静本身就是支持。</li>
+    <li>记得照顾自己的需要，不必总是做那个稳住的人。</li>
+  </ul>
+</div>
+
+<script>
+const narrativeCtx = document.getElementById('narrativeRadar');
+new Chart(narrativeCtx, {
+  type: 'radar',
+  data: {
+    labels: ["分离痛苦", "亲近寻求", "他人可获得性", "心智化", "结局整合", "防御加工"],
+    datasets: [{
+      label: '叙事维度',
+      data: [0.0, 0.0, 4.0, 4.0, 0.0, 0.0],
+      backgroundColor: 'rgba(74, 144, 217, 0.2)',
+      borderColor: 'rgba(74, 144, 217, 1)',
+      borderWidth: 2
+    }]
+  },
+  options: { scales: { r: { min: 0, max: 3, ticks: { stepSize: 1 } } } }
+});
+
+const criteriaCtx = document.getElementById('criteriaRadar');
+new Chart(criteriaCtx, {
+  type: 'radar',
+  data: {
+    labels: ["社会赞许性", "认知重评", "表达抑制", "拒绝敏感性", "神经质"],
+    datasets: [{
+      label: '效标指标',
+      data: [4.0, 4.0, 4.0, 4.0, 4.0],
+      backgroundColor: 'rgba(217, 144, 74, 0.2)',
+      borderColor: 'rgba(217, 144, 74, 1)',
+      borderWidth: 2
+    }]
+  },
+  options: { scales: { r: { min: 0, max: 7, ticks: { stepSize: 1 } } } }
+});
+</script>
+</body>
+</html>
